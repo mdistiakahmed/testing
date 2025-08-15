@@ -10,3 +10,7 @@ sudo docker build \
   .
 
 echo "Docker image $IMAGE_NAME:$IMAGE_TAG built successfully."
+
+#chmod +x docker-build.sh
+
+#sudo chmod -R 777 storage

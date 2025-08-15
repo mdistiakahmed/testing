@@ -6,6 +6,7 @@ FROM apify/actor-node-playwright-chrome:20
 # Set the working directory inside the container.
 # This also creates the /app directory.
 WORKDIR /app
+RUN mkdir -p /app/storage && chmod -R 777 /app
 
 # Copy just package.json and package-lock.json
 # to speed up the build using Docker layer cache.
