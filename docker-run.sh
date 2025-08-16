@@ -4,7 +4,9 @@ set -e
 IMAGE_NAME="my-crawlee-app"
 IMAGE_TAG="latest"
 
-docker run --rm -it \
+# docker run --rm -it ^
+
+docker run --rm \
   --name crawlee-container \
   -v "$(pwd):/app" \
   --memory=1g \
