@@ -34,4 +34,26 @@ echo "💡 Connect with:"
 echo "   ssh -i $PEM_FILE $USERNAME@$EC2_HOST"
 echo "   cd crawlee-project"
 
-#
+# 2. Install Docker
+# sudo yum install docker -y
+
+# 3. Enable and start Docker service
+# sudo systemctl enable --now docker
+
+# install git
+# sudo yum install git -y
+
+# clone public repo
+# git clone https://github.com/username/repo.git
+
+# gives files executable permission
+
+#chmod +x docker-build.sh
+
+# give code write permission
+# mkdir storage
+# sudo chmod -R 777 storage
+
+# sudo ./docker-run.sh
+
+# ssh -i "aws-ssh-pem-key.pem" ec2-user@ec2-54-210-79-100.compute-1.amazonaws.com

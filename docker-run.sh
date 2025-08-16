@@ -7,4 +7,5 @@ IMAGE_TAG="latest"
 docker run --rm -it \
   --name crawlee-container \
   -v "$(pwd):/app" \
+  --memory=1g \
   ${IMAGE_NAME}:${IMAGE_TAG}
