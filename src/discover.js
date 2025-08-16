@@ -1,4 +1,4 @@
-import { PlaywrightCrawler } from 'crawlee';
+import { Configuration, PlaywrightCrawler } from 'crawlee';
 import fs from 'fs';
 import path from 'path';
 
@@ -24,18 +24,22 @@ function saveAsinsToFile(asins) {
     console.log(`✅ Saved ${sorted.length} ASINs to ${filePath}`);
 }
 
+// Instantiate the Configuration class
+const configuration = new Configuration({
+    // Configure the AutoscaledPool here
+    systemStatusOptions: {
+        // Set the maximum memory usage to 1 GB (or a value that fits your needs)
+        maxMemoryBytes: 1024 * 1024 * 1024, // 1 GB
+    },
+});
+
 const discoveryCrawler = new PlaywrightCrawler({
+    configuration,
+
     headless: true,
     requestHandlerTimeoutSecs: 180,
     maxRequestRetries: 1,
     maxRequestsPerCrawl: 9999,
-
-    // Configure the AutoscaledPool to have a higher memory limit
-    // Set the maximum memory usage to 1 GB (or a value that fits your needs)
-    use: 'memory',
-    snapshotter: {
-        maxMemoryBytes: 1024 * 1024 * 1024, // 1 GB
-    },
 
     async requestHandler({ page, request, log, crawler }) {
         const { url, userData } = request;
