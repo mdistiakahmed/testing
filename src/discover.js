@@ -30,6 +30,13 @@ const discoveryCrawler = new PlaywrightCrawler({
     maxRequestRetries: 1,
     maxRequestsPerCrawl: 9999,
 
+    // Configure the AutoscaledPool to have a higher memory limit
+    // Set the maximum memory usage to 1 GB (or a value that fits your needs)
+    use: 'memory',
+    snapshotter: {
+        maxMemoryBytes: 1024 * 1024 * 1024, // 1 GB
+    },
+
     async requestHandler({ page, request, log, crawler }) {
         const { url, userData } = request;
         const pageCount = userData.pageCount || 1;
