@@ -5,7 +5,7 @@ import path from 'path';
 const CRAWL_ROOT_URLS = [
     'https://www.amazon.com/s?i=fashion-novelty&rh=p_6%3AATVPDKIKX0DER&s=featured&page=1&hidden-keywords=Lightweight%2C+Classic+fit%2C+Double-needle+sleeve+and+bottom+hem+-Longsleeve+-Raglan+-Vneck+-Tanktop&xpid=OIoi58_gtAvEm&qid=1754230177&ref=sr_pg_2',
 ];
-const MAX_PAGE_COUNT = 1;
+const MAX_PAGE_COUNT = 4;
 const asinPattern = /\/dp\/([A-Z0-9]{10})/;
 const ZIP_CODE = '10001'; // Change location ZIP code
 
