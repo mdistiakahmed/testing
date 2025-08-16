@@ -56,4 +56,6 @@ echo "   cd crawlee-project"
 
 # sudo ./docker-run.sh
 
+# */15 * * * * cd /home/ec2-user/testing && /bin/bash -lc "./docker-run.sh" >> /home/ec2-user/scraper.log 2>&1
+
 # ssh -i "aws-ssh-pem-key.pem" ec2-user@ec2-54-210-79-100.compute-1.amazonaws.com

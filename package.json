@@ -4,6 +4,7 @@
     "type": "module",
     "description": "This is an example of a Crawlee project.",
     "dependencies": {
+        "@aws-sdk/client-cloudwatch-logs": "^3.864.0",
         "crawlee": "^3.0.0",
         "playwright": "*"
     },

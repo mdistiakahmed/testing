@@ -1,6 +1,7 @@
-import { Configuration, PlaywrightCrawler } from 'crawlee';
+import { PlaywrightCrawler } from 'crawlee';
 import fs from 'fs';
 import path from 'path';
+import { logToCloudWatch } from '../utility/Logger.js';
 
 const CRAWL_ROOT_URLS = [
     'https://www.amazon.com/s?i=fashion-novelty&rh=p_6%3AATVPDKIKX0DER&s=featured&page=1&hidden-keywords=Lightweight%2C+Classic+fit%2C+Double-needle+sleeve+and+bottom+hem+-Longsleeve+-Raglan+-Vneck+-Tanktop&xpid=OIoi58_gtAvEm&qid=1754230177&ref=sr_pg_2',
@@ -32,6 +33,7 @@ const discoveryCrawler = new PlaywrightCrawler({
     maxRequestsPerCrawl: 9999,
 
     async requestHandler({ page, request, log, crawler }) {
+        await logToCloudWatch("Scraper started...");
         const { url, userData } = request;
         const pageCount = userData.pageCount || 1;
 
@@ -82,6 +84,8 @@ const discoveryCrawler = new PlaywrightCrawler({
 
         log.info(`Found ${pageAsins.size} ASINs on page ${pageCount}`);
         pageAsins.forEach(a => allAsins.add(a));
+
+        await logToCloudWatch("Scraper finished successfully ✅");
 
         // ===== Next page =====
         if (pageCount < MAX_PAGE_COUNT && pageAsins.size > 0) {
