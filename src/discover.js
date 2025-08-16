@@ -24,18 +24,8 @@ function saveAsinsToFile(asins) {
     console.log(`✅ Saved ${sorted.length} ASINs to ${filePath}`);
 }
 
-// Instantiate the Configuration class
-const configuration = new Configuration({
-    // Configure the AutoscaledPool here
-    systemStatusOptions: {
-        // Set the maximum memory usage to 1 GB (or a value that fits your needs)
-        maxMemoryBytes: 1024 * 1024 * 1024, // 1 GB
-    },
-});
 
 const discoveryCrawler = new PlaywrightCrawler({
-    configuration,
-
     headless: true,
     requestHandlerTimeoutSecs: 180,
     maxRequestRetries: 1,
