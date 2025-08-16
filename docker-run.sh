@@ -8,4 +8,5 @@ docker run --rm -it \
   --name crawlee-container \
   -v "$(pwd):/app" \
   --memory=1g \
+  --memory-swap=1g \
   ${IMAGE_NAME}:${IMAGE_TAG}
